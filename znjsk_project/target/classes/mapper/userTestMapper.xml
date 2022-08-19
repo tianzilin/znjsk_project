@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.znjsk.znjsk_project.mapper.userTestMapper">
+    <resultMap id="result" type="com.znjsk.znjsk_project.pojo.userTest">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="age" property="age" />
+        <result column="sex" property="sex" />
+    </resultMap>
+
+    <select id="findAllUser" resultType="com.znjsk.znjsk_project.pojo.userTest">
+        select * from test
+    </select>
+
+    <select id="findUserById" resultType="com.znjsk.znjsk_project.pojo.userTest">
+        select * from test where id=#{id};
+    </select>
+
+    <insert id="insertUser" parameterType="com.znjsk.znjsk_project.pojo.userTest">
+        insert into test (name,age,sex) values (#{name},#{age},#{sex});
+    </insert>
+
+    <delete id="deleteUser" parameterType="com.znjsk.znjsk_project.pojo.userTest">
+        delete from test where name=#{name}
+    </delete>
+
+    <update id="updateUser" parameterType="com.znjsk.znjsk_project.pojo.userTest">
+        update test set age=#{age},sex=#{sex} where name = #{name}
+    </update>
+</mapper>

@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/znjsk_test?&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  banner:
+    charset: UTF-8
+
+# MyBatis配置
+mybatis:
+  # 搜索指定包别名，用于扫描domain如果换位置就写指定的位置，如果不换位置其他位置也有domain需要扫描的，就在后面加，号。下面同理
+  typeAliasesPackage: com.znjsk.znjsk_project.pojo
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/*Mapper.xml
+#  # 加载全局的配置文件
+#  configLocation: classpath:mybatis/mybatis-config.xml
+
+
+#分页插件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
